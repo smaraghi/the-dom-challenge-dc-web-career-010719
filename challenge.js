@@ -43,9 +43,19 @@ function numHelper(num){
 function likeCounter(){
     num = document.getElementById('counter').innerText
     numHelper(num)
-    let li = document.createElement('li')
-    li.innerText = `${counter.innerText} has been liked ${likeObj[num]} time[s]`
-    document.querySelector('ul.likes').appendChild(li)
+
+    let likeElement 
+
+    if (document.getElementById(`li-${num}`)) {
+        likeElement = document.getElementById(`li-${num}`)
+        likeElement.innerText = `${num} has been liked ${likeObj[num]} times`
+    } else {
+        likeElement = document.createElement('li')
+        likeElement.setAttribute('id', `li-${num}`)
+        likes.appendChild(likeElement)
+        likeElement.innerText = `${num} has been liked ${likeObj[num]} times`
+    }
+
 }
         heart.addEventListener('click', likeCounter)
 
