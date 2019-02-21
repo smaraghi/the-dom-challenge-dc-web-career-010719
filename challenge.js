@@ -64,14 +64,10 @@ function likeCounter(){
 let pauseButton = document.getElementById('pause')
 let pause = false
 
-
-pauseButton.addEventListener('click', (time))
-
 function time(){
     if (!pause) {
         pause = true
         pauseButton.innerText = 'resume'
-        parseC.innerText = parseC.innerText
         document.querySelectorAll('button:not(#pause)').forEach(button => button.disabled = pause)
     } else {
         pause = false
@@ -79,6 +75,8 @@ function time(){
         document.querySelectorAll('button:not(#pause)').forEach(button => button.disabled = false)
     }
 }
+
+pauseButton.addEventListener('click', (time))
 
 //A user can leave comments
 
